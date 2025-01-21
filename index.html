@@ -92,8 +92,16 @@
         }
         function setAnswer() {
             let e = document.querySelector(".answer")
-            let answer = ANSWER_LIST[randint(0, ANSWER_LIST.length - 1)]
-            e.textContent = answer
+            let intervalId = setInterval(() => {
+            let answer = ANSWER_LIST[randint(0, ANSWER_LIST.length - 1)];
+            e.textContent = answer;
+        }, 16);
+
+        setTimeout(() => {
+            clearInterval(intervalId);
+            let finalAnswer = ANSWER_LIST[randint(0, ANSWER_LIST.length - 1)];
+            e.textContent = finalAnswer;
+        }, 1650);
         }
         function setUnse() {
             setStar("love-score")
